@@ -31,12 +31,12 @@ def create_Instance(name, min, max):
 if __name__ == '__main__':
 	ec2 = boto3.resource('ec2', region_name = "us-west-1")
 	message = input("Do you want to create a new key pair?(1 = yes/0 = no) > ")
-	if(message == 1):
-		cus = raw_input("enter the name you want:")
+	if(message == '1'):
+		cus = input("enter the name you want:")
 		create_KeyPair(cus)
 	message = input("Do you want to create launch a new instance?(1 = yes/0 = no) > ")
-	if(message == 1):
-		cus = raw_input("enter the key pair you want to use:")
+	if(message == '1'):
+		cus = input("enter the key pair you want to use:")
 		create_Instance(cus,1,1)
 
 	#for instance in instances:  
