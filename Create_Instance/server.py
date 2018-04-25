@@ -6,6 +6,8 @@ import boto3
 
 app = Flask(__name__)
 
+usrs = {}
+
 # instance creation function
 def create_KeyPair(name):
 	temp = "./Key_Pairs/"
@@ -27,13 +29,21 @@ def create_Instance(name, min, max):
 		SecurityGroupIds = ['sg-b0e167c9']
 	)
 	print("instance with key pair [{}] created\n".format(name))
-	return instances
+	instance = instances[0]
+	instance.wait_until_running()
+	instance.load()
+	dns = instance.public_dns_name
+	labelMe = "http://" + dns + "/LabelMeAnnotationTool/tool.html"
+	print(labelMe)
+	return labelMe
 
 
 
 @app.route('/')
 def index():
-    return render_template('register.html')
+	return render_template('register.html')
+    #return render_template('login.html')
+
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
@@ -41,10 +51,10 @@ def result():
         result = request.form
         #for key, value in result.items():
         #    print("{},{}".format(key,value))
-        check = result.get('Name')
-        create_KeyPair(check)
-        create_Instance(check,1,1)
-        return render_template('result.html',result = result)
+        usrname = result.get('Name')
+        #create_KeyPair(usrname)
+        LabelMe = create_Instance('MutipleUse',1,1)
+        return render_template('result.html',result = result, LabelMe = LabelMe, usrname = usrname)
 
 if __name__ == '__main__':
     ec2 = boto3.resource('ec2', region_name = "us-west-1")
