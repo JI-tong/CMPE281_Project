@@ -1,8 +1,8 @@
 # Prepration:
 
-'''
+```
 pip3 install virtualenv
-'''
+```
 
 ### create & activate the my-venv
 ```
@@ -12,11 +12,15 @@ virtualenv my-venv
 
 ### install the necessary packages on your venv
 ```
+pip3 install awscli
 pip3 install flask
 pip3 install boto
 pip3 install boto3
 ```
 ### also dont forget to configure the aws
+```
+aws configure
+```
 
 # Run:
 
