@@ -58,4 +58,7 @@ def result():
 
 if __name__ == '__main__':
     ec2 = boto3.resource('ec2', region_name = "us-west-1")
+	# if in the ec2 use:
+	# app.run(host='0.0.0.0', port=80)
+	# then log in using ec2 instance public ip
     app.run(debug = True)
