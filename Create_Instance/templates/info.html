@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+   <body>
+   
+      <table border = 1>
+         <thead>
+            <td>ID</td>
+            <td>Password</td>
+            <td>Public_Domain</td>
+            <td>InstanceLink</td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["id"]}}</td>
+               <td>{{row["password"]}}</td>
+               <td>{{row["dns"]}}</td>
+               <td> {{row["link"]}}</td>	
+            </tr>
+         {% endfor %}
+      </table>
+    </body>
+</html>
