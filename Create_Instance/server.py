@@ -126,4 +126,4 @@ if __name__ == '__main__':
 	# then log in using ec2 instance public ip
     start_db()
     #app.run(debug = True)
-	app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=80)
