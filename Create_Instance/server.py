@@ -39,7 +39,7 @@ def create_KeyPair(name):
 
 def create_Instance(name, min, max):
 	instances = ec2.create_instances(
-		ImageId='ami-c57261a5', 
+		ImageId='ami-d8a4bbb8', 
 		MinCount=int(min), 
 		MaxCount=int(max),
 		KeyName=name,
@@ -125,4 +125,5 @@ if __name__ == '__main__':
 	# app.run(host='0.0.0.0', port=80)
 	# then log in using ec2 instance public ip
     start_db()
-    app.run(debug = True)
+    #app.run(debug = True)
+	app.run(host='0.0.0.0', port=80)
