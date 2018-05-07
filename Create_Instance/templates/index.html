@@ -78,7 +78,7 @@ h1#gradient {
 </head>
 <body>
 <div class="imgcontainer">
-    <img src="{{user_image}}" alt="Avatar">
+    <img src="{{user_image}}"/>
   </div>
 <div style="color: black ;text-align: center;font-family: Palatino;border: 3px solid #D56075; border-radius: 10px;height:70%;width: 30%;margin-left: 38%;margin-top: 6%;
 ">
@@ -87,7 +87,8 @@ h1#gradient {
 <h1 id="gradient">Login</h1>
 </div>
 
-<form action="/action_page.php">
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<form action = "{{ url_for('index') }}" method = "POST">
   
 
   <div class="container">
@@ -105,6 +106,7 @@ h1#gradient {
 
   
 </form>
+<p><button type="submit" onclick="location.href='/regist';" style="width: 100px">Register</button></p>
 </div>
 </body>
 </html>

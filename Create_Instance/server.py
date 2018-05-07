@@ -7,6 +7,7 @@ import sqlite3 as sql
 
 app = Flask(__name__)
 DATABASE = 'labelme.db'
+img = "templates/labelme.jpg"
 
 def start_db():
 	try:
@@ -84,7 +85,7 @@ def index():
 		finally:
 			con.close()
 
-	return render_template('index.html', error = error, user_image = "labelme.png")
+	return render_template('index.html', error = error, user_image = img)
     #return render_template('login.html')
 
 @app.route('/regist', methods = ['POST','GET'])
