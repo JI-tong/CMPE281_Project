@@ -84,7 +84,7 @@ def index():
 		finally:
 			con.close()
 
-	return render_template('index.html', error = error)
+	return render_template('index.html', error = error, user_image = "labelme.png")
     #return render_template('login.html')
 
 @app.route('/regist', methods = ['POST','GET'])
