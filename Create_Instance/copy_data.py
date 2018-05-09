@@ -14,5 +14,6 @@ dns = cur.fetchall()
 
 
 key_path = "./Key_Pairs/MutipleUse.pem"
+os.system('rm -rf ~/users/*')
 for user_dns in dns:
-    os.system('scp -i {} -r ubuntu@{}:~/test_folder ~/{}'.format(key_path, user_dns[0], user_dns[1]))
+    os.system('scp -i {} -r ubuntu@{}:~/test_folder ~/users/{}'.format(key_path, user_dns[0], user_dns[1]))
