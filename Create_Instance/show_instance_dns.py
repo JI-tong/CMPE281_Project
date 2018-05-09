@@ -11,4 +11,4 @@ running_instances = ec2.instances.filter(Filters=[{
 #ec2info = defaultdict()
 
 for instance in running_instances:
-    print(instance.public_dns_name)
+    print(instance.private_dns_name)
